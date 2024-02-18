@@ -13,4 +13,11 @@ whatsapp.on('ready', () => {
   console.log('Client is ready!')
 })
 
+whatsapp.on('message', async message => {
+if(message.body === "hello"){
+  message.reply("hi")
+}
+})
+
+
 whatsapp.initialize();
