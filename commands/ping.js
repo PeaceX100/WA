@@ -1,5 +1,7 @@
 module.exports = {
     name: 'ping',
+    aliases: ['p', 'latency'],
+
     execute: async (whatsapp, message, args) => {
       try {
         const startTime = Date.now();

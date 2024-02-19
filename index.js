@@ -18,17 +18,31 @@ whatsapp.on('message', async message => {
   try {
     const prefix = config.prefix || '!'; // Default prefix is '!'
     if (!message.body.startsWith(prefix)) return; // Ignore messages without prefix
+
     const args = message.body.slice(prefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
 
-    // Check if the command file exists
-    const commandFilePath = `./commands/${commandName}.js`;
+    let commandFilePath = `./commands/${commandName}.js`;
+    let command;
+
     if (fs.existsSync(commandFilePath)) {
-      const command = require(commandFilePath);
-      await command.execute(whatsapp, message, args);
+      command = require(commandFilePath);
     } else {
-      console.log(`Command '${commandName}' not found.`);
+      const commandsDir = fs.readdirSync('./commands');
+      const commandModule = commandsDir.find(file => {
+        const module = require(`./commands/${file}`);
+        return module.aliases && module.aliases.includes(commandName);
+      });
+
+      if (commandModule) {
+        command = require(`./commands/${commandModule}`);
+      } else {
+        console.log(`Command '${commandName}' not found.`);
+        return;
+      }
     }
+
+    await command.execute(whatsapp, message, args);
   } catch (error) {
     console.error('Error handling message:', error);
   }

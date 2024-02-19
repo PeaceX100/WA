@@ -1,6 +1,6 @@
 module.exports = {
     name: '8ball',
-    aliases: ['magicball'],
+    aliases: ['magicball','mb','8b'],
     description: 'Ask the magic 8-ball a question!',
     execute: async (whatsapp, message, args) => {
       try {
