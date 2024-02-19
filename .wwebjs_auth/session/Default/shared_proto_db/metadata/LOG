@@ -1,2 +1,3 @@
-2024/02/18-13:18:30.389 1398 Creating DB /workspaces/WA/.wwebjs_auth/session/Default/shared_proto_db/metadata since it was missing.
-2024/02/18-13:18:30.441 1398 Reusing MANIFEST /workspaces/WA/.wwebjs_auth/session/Default/shared_proto_db/metadata/MANIFEST-000001
+2024/02/19-14:07:27.072 112c Reusing MANIFEST /workspaces/WA/.wwebjs_auth/session/Default/shared_proto_db/metadata/MANIFEST-000001
+2024/02/19-14:07:27.072 112c Recovering log #3
+2024/02/19-14:07:27.072 112c Reusing old log /workspaces/WA/.wwebjs_auth/session/Default/shared_proto_db/metadata/000003.log 

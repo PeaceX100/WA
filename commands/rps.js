@@ -3,7 +3,7 @@ module.exports = {
   aliases: ['rock', 'paper', 'scissors'],
   description: "Plays rock paper scissors with the bot!",
   usage: "rps (rock/paper/scissors)",
-  execute: async (whatsapp, msg, args) => {
+  execute: async (whatsapp, message, args) => {
     try {
       const rps = ['scissors', 'rock', 'paper'];
       const res = [`✂️ Scissors`, `🗿 Rock`, `🗞️ Paper`];
@@ -11,13 +11,13 @@ module.exports = {
       let userChoice;
       if (args.length) userChoice = args[0].toLowerCase();
       if (!rps.includes(userChoice))
-        return whatsapp.sendMessage(msg.from, 'Please enter rock, paper, or scissors');
+        return whatsapp.sendMessage(message.from, 'Please enter rock, paper, or scissors');
       userChoice = rps.indexOf(userChoice);
 
       const botChoice = Math.floor(Math.random() * 3);
       let result;
 
-      const contact = await msg.getContact();
+      const contact = await message.getContact();
       const senderName = contact.pushname || 'Unknown';
 
       if (userChoice === botChoice) result = 'It\'s a draw, no one wins';
@@ -27,7 +27,7 @@ module.exports = {
 
       const reply = `*${senderName}* vs *${whatsapp.info.pushname}* RPS\n\n${senderName}: ${res[userChoice]}\n${whatsapp.info.pushname}: ${res[botChoice]}\nResults: ${result}`;
 
-      await whatsapp.sendMessage(msg.from, reply);
+      await whatsapp.sendMessage(message.from, reply);
     } catch (error) {
       console.error('Error handling rps command:', error);
     }
