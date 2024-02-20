@@ -1,3 +1,18 @@
-2024/02/19-17:52:50.497 1dad Reusing MANIFEST /workspaces/WA/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/02/19-17:52:50.498 1dad Recovering log #192
-2024/02/19-17:52:50.612 1dad Reusing old log /workspaces/WA/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000192.log 
+2024/02/20-14:06:56.526 be0 Reusing MANIFEST /workspaces/WA/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/02/20-14:06:56.526 be0 Recovering log #199
+2024/02/20-14:06:56.646 be0 Reusing old log /workspaces/WA/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000199.log 
+2024/02/20-14:07:20.869 c35 Level-0 table #207: started
+2024/02/20-14:07:21.020 c35 Level-0 table #207: 1288308 bytes OK
+2024/02/20-14:07:21.040 c35 Delete type=0 #199
+2024/02/20-14:07:21.100 c35 Compacting 1@1 + 4@2 files
+2024/02/20-14:07:21.426 c35 Generated table #208@1: 62333 keys, 2268332 bytes
+2024/02/20-14:07:21.582 c35 Generated table #209@1: 2539 keys, 2154031 bytes
+2024/02/20-14:07:21.840 c35 Generated table #210@1: 25546 keys, 2224109 bytes
+2024/02/20-14:07:22.147 c35 Generated table #211@1: 76678 keys, 2016396 bytes
+2024/02/20-14:07:22.147 c35 Compacted 1@1 + 4@2 files => 8662868 bytes
+2024/02/20-14:07:22.175 c35 compacted to: files[ 0 0 4 0 0 0 0 ]
+2024/02/20-14:07:22.175 c35 Delete type=2 #207
+2024/02/20-14:07:22.175 c35 Delete type=2 #201
+2024/02/20-14:07:22.175 c35 Delete type=2 #204
+2024/02/20-14:07:22.175 c35 Delete type=2 #203
+2024/02/20-14:07:22.175 c35 Delete type=2 #202

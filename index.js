@@ -1,4 +1,5 @@
 const fs = require('fs');
+const http = require('http');
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const config = require("./config.json");
 
@@ -49,3 +50,14 @@ whatsapp.on('message', async message => {
 });
 
 whatsapp.initialize();
+
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('WhatsApp bot is running!');
+});
+
+const port = process.env.PORT || 3000;
+server.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+})
