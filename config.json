@@ -1,3 +1,4 @@
 {
-    "prefix": "!"
+    "prefix": "!",
+    "weatherAPI": "de017e17890deaaa042c12456217cd55"
 }
