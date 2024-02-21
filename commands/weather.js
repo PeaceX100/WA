@@ -1,4 +1,5 @@
-const { weatherAPI } = require('../config.json')
+const { weatherAPI } = require('../config.json');
+const axios = require('axios');
 
 module.exports = {
     name: 'weather',
@@ -13,9 +14,8 @@ module.exports = {
         }
 
         try {
-            const fetch = await import('node-fetch');
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`;
-            const response = await fetch(url);
+            const response = await axios.get(url);
             const data = await response.json();
 
             if (data.cod === '404') {

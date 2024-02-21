@@ -43,7 +43,12 @@ whatsapp.on('message', async message => {
       }
     }
 
-    await command.execute(whatsapp, message, args);
+    if (message.fromMe) {
+      message.fromMe = false;
+      await command.execute(whatsapp, message, args);
+    } else {
+      await command.execute(whatsapp, message, args);
+    }
   } catch (error) {
     console.error('Error handling message:', error);
   }
