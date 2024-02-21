@@ -16,7 +16,7 @@ module.exports = {
       
       const formattedDefinitions = response.data.map(entry => {
         const meaningsForEntry = entry.meanings.map(meaning => {
-          return `Part of Speech: ${meaning.partOfSpeech}\n\nDefinition: ${meaning.definitions.map(def => def.definition).join("; ")}`;
+          return `💬Part of Speech: ${meaning.partOfSpeech}\n\n📃Definition: ${meaning.definitions.map(def => def.definition).join("; ")}`;
         }).join("\n\n");
         return `📖Word: ${entry.word}\n\n📄Meanings:\n${meaningsForEntry}`;
       }).join("\n\n");

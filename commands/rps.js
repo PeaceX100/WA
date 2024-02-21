@@ -20,12 +20,12 @@ module.exports = {
       const contact = await message.getContact();
       const senderName = contact.pushname || 'Unknown';
 
-      if (userChoice === botChoice) result = 'It\'s a draw, no one wins';
+      if (userChoice === botChoice) result = 'It\'s a draw, no one wins 💀';
       else if ((userChoice === 0 && botChoice === 2) || (userChoice === 1 && botChoice === 0) || (userChoice === 2 && botChoice === 1))
-        result = `*${senderName}* Wins!`;
-      else result = `*${whatsapp.info.pushname}* Wins!`;
+        result = `*${senderName}* 🎉Wins!👏`;
+      else result = `*${whatsapp.info.pushname}* Wins!😔`;
 
-      const reply = `*${senderName}* vs *${whatsapp.info.pushname}* RPS\n\n${senderName}: ${res[userChoice]}\n${whatsapp.info.pushname}: ${res[botChoice]}\nResults: ${result}`;
+      const reply = `*${senderName}* vs *${whatsapp.info.pushname}* RPS\n\n${senderName}: ${res[userChoice]}\n${whatsapp.info.pushname}: ${res[botChoice]}\n*📄Results*: ${result}`;
 
       await whatsapp.sendMessage(message.from, reply);
     } catch (error) {

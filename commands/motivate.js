@@ -558,7 +558,7 @@ module.exports = {
         const randomIndex = Math.floor(Math.random() * motivation.length);
         const randomMotivation = motivation[randomIndex];
 
-        await whatsapp.sendMessage(message.from, `*Cheer up! ${senderName}*\n\n*${randomMotivation}*`, {
+        await whatsapp.sendMessage(message.from, `*🌞Cheer up! ${senderName}🌞*\n\n*${randomMotivation}*`, {
             quotedMessage: message
         });
     }

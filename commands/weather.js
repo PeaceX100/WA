@@ -28,7 +28,7 @@ module.exports = {
             const feelsLike = data.main.feels_like;
             const humidity = data.main.humidity;
 
-            const weatherInfo = `*Weather in ${city}*\n\nDescription: ${weatherDescription}\nTemperature: ${temperature}°C\nFeels like: ${feelsLike}°C\nHumidity: ${humidity}%`;
+            const weatherInfo = `*Weather in 🏙️${city}*\n\n*Condition*: _${weatherDescription}_\n*🌡️Temperature*: _${temperature}°C_\n*🫠Feels like*: _${feelsLike}°C_\n*💧Humidity*: _${humidity}%_`;
 
             await whatsapp.sendMessage(message.from, weatherInfo);
         } catch (error) {

@@ -6,7 +6,7 @@ module.exports = {
     async execute(whatsapp, message) {
         const fetch = await import("node-fetch");
         const quote = await getQuote(fetch);
-        await whatsapp.sendMessage(message.from, `*Inspirational Quote:*\n\n_${quote}_`);
+        await whatsapp.sendMessage(message.from, `*Inspirational Quote:*\n\n“ _${quote}_”`);
     },
 };
 
