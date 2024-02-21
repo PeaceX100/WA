@@ -16,7 +16,7 @@ module.exports = {
         try {
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`;
             const response = await axios.get(url);
-            const data = await response.json();
+            const data = await response.data;
 
             if (data.cod === '404') {
                 await whatsapp.sendMessage(message.from, 'City not found. Please provide a valid city name.');

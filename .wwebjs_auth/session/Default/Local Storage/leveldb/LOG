@@ -1,3 +1,3 @@
-2024/02/20-16:25:26.454 e1ab Reusing MANIFEST /workspaces/WA/.wwebjs_auth/session/Default/Local Storage/leveldb/MANIFEST-000001
-2024/02/20-16:25:26.456 e1ab Recovering log #16
-2024/02/20-16:25:26.456 e1ab Reusing old log /workspaces/WA/.wwebjs_auth/session/Default/Local Storage/leveldb/000016.log 
+2024/02/21-08:07:13.869 3e18 Reusing MANIFEST /workspaces/WA/.wwebjs_auth/session/Default/Local Storage/leveldb/MANIFEST-000001
+2024/02/21-08:07:13.869 3e18 Recovering log #16
+2024/02/21-08:07:13.869 3e18 Reusing old log /workspaces/WA/.wwebjs_auth/session/Default/Local Storage/leveldb/000016.log 

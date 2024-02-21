@@ -1,3 +1,8 @@
-2024/02/20-16:25:27.863 e1a8 Reusing MANIFEST /workspaces/WA/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/02/20-16:25:27.864 e1a8 Recovering log #213
-2024/02/20-16:25:27.930 e1a8 Reusing old log /workspaces/WA/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000213.log 
+2024/02/21-08:07:14.878 3e19 Reusing MANIFEST /workspaces/WA/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/02/21-08:07:14.879 3e19 Recovering log #220
+2024/02/21-08:07:14.931 3e19 Reusing old log /workspaces/WA/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000220.log 
+2024/02/21-08:07:14.931 3e19 Delete type=2 #221
+2024/02/21-08:07:14.931 3e19 Delete type=2 #218
+2024/02/21-08:07:14.931 3e19 Delete type=2 #215
+2024/02/21-08:07:14.931 3e19 Delete type=2 #217
+2024/02/21-08:07:14.931 3e19 Delete type=2 #216
