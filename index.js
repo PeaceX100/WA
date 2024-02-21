@@ -1,4 +1,5 @@
 const fs = require('fs');
+const qrcode = require("qrcode-terminal")
 const http = require('http');
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const config = require("./config.json");
@@ -8,6 +9,9 @@ const whatsapp = new Client({
 });
 
 whatsapp.on('qr', qr => {
+  qrcode.generate(qr,{
+  small:true
+  })
   console.log('QR code received, scan it with your phone.');
 });
 
