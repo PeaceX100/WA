@@ -1,6 +1,9 @@
 const { MessageMedia } = require('whatsapp-web.js');
+const axios = require('axios');
+const fs = require('fs').promises;
+const path = require('path');
 const animals = require('random-animals-api');
-const { prefix } = require('../../config.json');
+const { prefix } = require('../config.json');
 
 module.exports = {
     name: 'animals',
@@ -30,11 +33,20 @@ module.exports = {
             // Fetch a random image of the specified animal type
             const url = await animals[requestedAnimalType]();
 
-            const media = MessageMedia.fromUrl(url);
+            // Download the image
+            const response = await axios.get(url, { responseType: 'arraybuffer' });
+            const tempImgPath = path.join(__dirname, '..', 'tempImg', `${requestedAnimalType}.jpg`);
+            await fs.writeFile(tempImgPath, response.data);
 
+            // Create a WhatsApp media message
+            const media = MessageMedia.fromFilePath(tempImgPath);
+
+            // Send the media message with a caption
             const caption = `Here's a ${requestedAnimalType}!`;
-
             await whatsapp.sendMessage(message.from, media, { caption });
+
+            // Delete the temporary image file after sending
+            await fs.unlink(tempImgPath);
         } catch (error) {
             console.error(error);
             await whatsapp.sendMessage(message.from, 'An error occurred while fetching the animal image.');
