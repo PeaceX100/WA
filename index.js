@@ -3,6 +3,7 @@ const qrcode = require("qrcode-terminal")
 const http = require('http');
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const config = require("./config.json");
+const uptimeCommand = require('./commands/uptime');
 
 const whatsapp = new Client({
   authStrategy: new LocalAuth()
@@ -17,6 +18,7 @@ whatsapp.on('qr', qr => {
 
 whatsapp.on('ready', () => {
   console.log('WhatsApp bot is ready!');
+  uptimeCommand.setStartTime();
 });
 
 whatsapp.on('message', async message => {
