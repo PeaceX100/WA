@@ -6,8 +6,7 @@ const config = require("./config.json");
 const uptimeCommand = require('./commands/uptime');
 
 const whatsapp = new Client({
-  authStrategy: new LocalAuth()
-});
+  authStrategy: new LocalAuth()});
 
 whatsapp.on('qr', qr => {
   qrcode.generate(qr,{
