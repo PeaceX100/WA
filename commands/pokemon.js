@@ -61,6 +61,7 @@ module.exports = {
     try {
       // Fetch a random Pokémon name based on the specified probabilities
       const pokemonName = getRandomPokemonName();
+      const userId = message.sender.id;
 
       // Fetch Pokémon data from the API using the randomly selected name
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
@@ -73,14 +74,15 @@ module.exports = {
       const pokemonDisplayName = pokemonData.name;
 
       // Randomly select between default and shiny image
-      const imgURL = Math.random() < 0.01 ? frontShinyURL : frontDefaultURL;
+      const isShiny = Math.random() < 0.01; // 1% chance of being shiny
+      const imgURL = isShiny ? frontShinyURL : frontDefaultURL;
 
       // Download the image
       const imgResponse = await axios.get(imgURL, { responseType: 'arraybuffer' });
       const imgBuffer = Buffer.from(imgResponse.data, 'binary');
 
       // Save the image as a temporary file in tempImg folder
-      const tempImgFolder = path.join(__dirname, 'tempImg');
+      const tempImgFolder = path.join(__dirname, '..', 'tempImg');
       if (!fs.existsSync(tempImgFolder)) {
         fs.mkdirSync(tempImgFolder);
       }
@@ -92,7 +94,7 @@ module.exports = {
       await whatsapp.sendMessage(message.from, media, { caption: `A wild ${pokemonDisplayName} appeared. Catch it!` });
 
       // Set a timeout to stop waiting for user response after 10 seconds
-      const timeoutMs = 10000; // 10 seconds
+      const timeoutMs = 15000; // 15 seconds
       const startTime = Date.now();
 
       // Listen for all incoming messages
@@ -110,6 +112,7 @@ module.exports = {
       }, timeoutMs);
       
       // Variable to track whether the Pokémon has been caught
+      let caughtOrFled = false;
       let caughtPokemon = false;
       
       // Listen for all incoming messages
@@ -125,8 +128,13 @@ module.exports = {
               const resultMessage = `You threw a ${chosenBall}!\n${catchResult}`;
               await whatsapp.sendMessage(message.from, resultMessage);
       
-              // Set the caughtPokemon flag to true if the Pokémon is caught
+              // Set the caughtOrFled flag to true if the Pokémon is caught
               if (catchResult.startsWith('Congratulations' || 'Oh no!')) {
+                caughtOrFled = true;
+              }
+
+              if (catchResult.startsWith('Congratulations')) {
+                userDb.set('caughtPokemons', caughtPokemons.set(pokemonName, isShiny ? `✨${pokemonName}` : pokemonName)).write();
                 caughtPokemon = true;
               }
       
